@@ -45,8 +45,26 @@ public class LinkedList {
 	 */
 	public int getElement(int index)
 	{
-		// default return value
-		return 0;	
+		// element we are currently at - start at first real element
+		ListElement foundElement = head.getNext();
+		// traverse list to find element at index
+		for (int i = 0; i < index && foundElement != null; i++)
+		{
+			foundElement = foundElement.getNext();
+		}
+		// value of element at position
+		int value;
+		// if we found element, return it
+		if (foundElement != null)
+		{
+			value = foundElement.getValue();
+		}
+		// an element does not exist at the specified location
+		else
+		{
+			value = 0;
+		}
+		return value;
 	}
 	
 	/**
