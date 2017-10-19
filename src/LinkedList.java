@@ -23,7 +23,19 @@ public class LinkedList {
 	 */
 	public void addElement(int value)
 	{
-		
+		// new element to add to list
+		ListElement newElement = new ListElement();
+		// assign data to new element
+		newElement.setValue(value);
+		// last element of list
+		ListElement lastElement = head;
+		// traverse list to find last element
+		while (lastElement.getNext() != null)
+		{
+			lastElement = lastElement.getNext();
+		}
+		// append value to list
+		lastElement.setNext(newElement);
 	}
 	
 	/**
