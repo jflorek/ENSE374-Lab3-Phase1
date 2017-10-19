@@ -8,7 +8,23 @@ public class ListElement {
 	
 	public ListElement()
 	{
-		next = null;
-		value = 0;
+		setNext(null);
+		setValue(0);
+	}
+
+	public ListElement getNext() {
+		return next;
+	}
+
+	public void setNext(ListElement next) {
+		this.next = next;
+	}
+
+	public int getValue() {
+		return value;
+	}
+
+	public void setValue(int value) {
+		this.value = value;
 	}
 }
