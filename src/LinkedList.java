@@ -12,7 +12,8 @@ public class LinkedList {
 	 */
 	public LinkedList()
 	{
-		
+		// add sentinel as head
+		head = new ListElement();
 	}
 	
 	/**
