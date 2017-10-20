@@ -124,6 +124,15 @@ public class LinkedList {
 	 */
 	public void printListRvs(PrintStream print)
 	{
-		print.println("Unimplemented");
+		// element we are currently at
+		ListElement current = tail.getPrevious();
+		// traverse linked list
+		while (current != head)
+		{
+			// print contents
+			print.print(current.getValue() + " ");
+			current = current.getPrevious();
+		}
+		print.println();
 	}
 }
