@@ -37,6 +37,15 @@ public class Program {
 				break;
 			case "get":
 				System.out.println("Gets a value");
+				if (in.hasNextInt())
+				{
+					int value = list.getElement(in.nextInt());
+					System.out.println("Value at index: " + value);
+					if (value == 0)
+					{
+						System.out.println("Value is zero - element may not exist (you have to check)");
+					}
+				}
 				break;
 			case "delete":
 				if (in.hasNextInt())
