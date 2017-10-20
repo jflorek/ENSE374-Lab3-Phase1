@@ -73,6 +73,31 @@ public class LinkedList {
 	 */
 	public void deleteElement(int index)
 	{
+		// element before the one at our current position
+		ListElement previous = null;
+		// element at current position
+		ListElement current = head;
+		// traverse list until we reach index or end
+		for (int i = 0; i < index && current != null; i++)
+		{
+			previous = current;
+			current = current.getNext();
+		}
+		// if not at end, get element after deleted one (GC will deal with deleted one)
+		if (current != null)
+		{
+			current = current.getNext();
+		}
+		// if we are removing first element, element before it does not exist - edit head
+		if (previous == null)
+		{
+			head = current;
+		}
+		// not removing first element - set next of previous
+		else
+		{
+			previous.setNext(current);
+		}
 		
 	}
 	
@@ -82,6 +107,14 @@ public class LinkedList {
 	 */
 	public void printList(PrintStream print)
 	{
-		
+		// element we are currently at
+		ListElement current = head;
+		// traverse linked list
+		while (head != null)
+		{
+			// print contents
+			print.print(current.getValue() + " ");
+			head = head.getNext();
+		}
 	}
 }
