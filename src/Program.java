@@ -75,6 +75,7 @@ public class Program {
 			}
 		}
 		System.out.println("Exiting program...");
+		in.close();
 	}
 
 }
