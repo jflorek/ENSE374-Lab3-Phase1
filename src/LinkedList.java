@@ -43,7 +43,7 @@ public class LinkedList {
 	 * @param index index of the value to retrieve
 	 * @return the value at the specified index
 	 */
-	public int getElement(int index)
+	public int getElement(int index) throws Exception
 	{
 		// element we are currently at - start at first real element
 		ListElement foundElement = head.getNext();
@@ -62,7 +62,7 @@ public class LinkedList {
 		// an element does not exist at the specified location
 		else
 		{
-			value = 0;
+			throw new Exception();
 		}
 		return value;
 	}

@@ -39,11 +39,14 @@ public class Program {
 				System.out.println("Gets a value");
 				if (in.hasNextInt())
 				{
-					int value = list.getElement(in.nextInt());
-					System.out.println("Value at index: " + value);
-					if (value == 0)
+					try 
 					{
-						System.out.println("Value is zero - element may not exist (you have to check)");
+						int value = list.getElement(in.nextInt());
+						System.out.println("Value at index: " + value);
+					}
+					catch (Exception e)
+					{
+						System.out.println("Element does not exist at the specified index");
 					}
 				}
 				break;
