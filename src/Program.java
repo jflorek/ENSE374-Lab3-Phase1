@@ -39,7 +39,15 @@ public class Program {
 				System.out.println("Gets a value");
 				break;
 			case "delete":
-				System.out.println("Deletes a value");
+				if (in.hasNextInt())
+				{
+					list.deleteElement(in.nextInt());
+					System.out.println("Values at index deleted.");
+				}
+				else
+				{
+					System.out.print("\"" + in.next() + "\" not an index");
+				}
 				break;
 			case "print":
 				System.out.println("List contents:");
@@ -50,6 +58,8 @@ public class Program {
 				break;
 			default:
 				System.out.println("Invalid command");
+				in.nextLine();
+				break;
 			}
 		}
 		System.out.println("Exiting program...");
