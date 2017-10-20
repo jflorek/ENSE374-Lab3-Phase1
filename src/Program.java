@@ -42,7 +42,8 @@ public class Program {
 				System.out.println("Deletes a value");
 				break;
 			case "print":
-				System.out.println("Prints values");
+				System.out.println("List contents:");
+				list.printList(System.out);
 				break;
 			case "exit":
 				stop = true;
