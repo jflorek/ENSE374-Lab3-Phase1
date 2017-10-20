@@ -110,7 +110,7 @@ public class LinkedList {
 		// element we are currently at
 		ListElement current = head.getNext();
 		// traverse linked list
-		while (head != null)
+		while (current != null)
 		{
 			// print contents
 			print.print(current.getValue() + " ");
