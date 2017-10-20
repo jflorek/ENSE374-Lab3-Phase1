@@ -4,11 +4,13 @@
  */
 public class ListElement {
 	private ListElement next;
+	private ListElement previous;
 	private int value;
 	
 	public ListElement()
 	{
 		setNext(null);
+		setPrevious(null);
 		setValue(0);
 	}
 
@@ -26,5 +28,13 @@ public class ListElement {
 
 	public void setValue(int value) {
 		this.value = value;
+	}
+
+	public ListElement getPrevious() {
+		return previous;
+	}
+
+	public void setPrevious(ListElement previous) {
+		this.previous = previous;
 	}
 }
