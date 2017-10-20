@@ -74,9 +74,9 @@ public class LinkedList {
 	public void deleteElement(int index)
 	{
 		// element before the one at our current position
-		ListElement previous = null;
+		ListElement previous = head;
 		// element at current position
-		ListElement current = head;
+		ListElement current = head.getNext();
 		// traverse list until we reach index or end
 		for (int i = 0; i < index && current != null; i++)
 		{
@@ -88,16 +88,8 @@ public class LinkedList {
 		{
 			current = current.getNext();
 		}
-		// if we are removing first element, element before it does not exist - edit head
-		if (previous == null)
-		{
-			head = current;
-		}
-		// not removing first element - set next of previous
-		else
-		{
-			previous.setNext(current);
-		}
+		previous.setNext(current);
+		
 		
 	}
 	
