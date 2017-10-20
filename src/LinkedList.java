@@ -108,13 +108,13 @@ public class LinkedList {
 	public void printList(PrintStream print)
 	{
 		// element we are currently at
-		ListElement current = head;
+		ListElement current = head.getNext();
 		// traverse linked list
 		while (head != null)
 		{
 			// print contents
 			print.print(current.getValue() + " ");
-			head = head.getNext();
+			current = current.getNext();
 		}
 	}
 }
