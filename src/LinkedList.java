@@ -115,5 +115,15 @@ public class LinkedList {
 			print.print(current.getValue() + " ");
 			current = current.getNext();
 		}
+		print.println();
+	}
+	
+	/**
+	 * Prints the contents of the LinkedList in reverse
+	 * @param print PrintStream instance to print to
+	 */
+	public void printListRvs(PrintStream print)
+	{
+		print.println("Unimplemented");
 	}
 }

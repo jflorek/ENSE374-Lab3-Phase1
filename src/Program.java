@@ -23,6 +23,7 @@ public class Program {
 					+ "\nget [index] : gets the value at the specified index, or 0 if no element at index"
 					+ "\ndelete [index] : deletes value at specified index if it exists"
 					+ "\nprint : prints contents of list from begin to end"
+					+ "\nprintback : prints contents of list from end to begin"
 					+ "\nexit : end the program");
 			switch(in.next().toLowerCase())
 			{
@@ -64,6 +65,10 @@ public class Program {
 			case "print":
 				System.out.println("List contents:");
 				list.printList(System.out);
+				break;
+			case "printback":
+				System.out.println("List contents (reversed):");
+				list.printListRvs(System.out);
 				break;
 			case "exit":
 				stop = true;
