@@ -6,6 +6,7 @@ import java.io.PrintStream;
  */
 public class LinkedList {
 	private ListElement head;
+	private ListElement tail;
 	
 	/**
 	 * Initializes a new LinkedList instance
@@ -14,6 +15,11 @@ public class LinkedList {
 	{
 		// add sentinel as head
 		head = new ListElement();
+		// add sentinel as tail
+		tail = new ListElement();
+		// connect sentinels
+		head.setNext(tail);
+		tail.setPrevious(head);
 	}
 	
 	/**
@@ -27,15 +33,16 @@ public class LinkedList {
 		ListElement newElement = new ListElement();
 		// assign data to new element
 		newElement.setValue(value);
-		// last element of list
-		ListElement lastElement = head;
-		// traverse list to find last element
-		while (lastElement.getNext() != null)
-		{
-			lastElement = lastElement.getNext();
-		}
-		// append value to list
-		lastElement.setNext(newElement);
+		// get what was once last element in array
+		ListElement oldLastElement = tail.getPrevious();
+		// set new element's next to tail
+		newElement.setNext(tail);
+		// set new element's previous to second last element
+		newElement.setPrevious(oldLastElement);
+		// aim second last at last
+		oldLastElement.setNext(newElement);
+		// aim tail at new last
+		tail.setPrevious(newElement);
 	}
 	
 	/**
@@ -48,14 +55,14 @@ public class LinkedList {
 		// element we are currently at - start at first real element
 		ListElement foundElement = head.getNext();
 		// traverse list to find element at index
-		for (int i = 0; i < index && foundElement != null; i++)
+		for (int i = 0; i < index && foundElement != tail; i++)
 		{
 			foundElement = foundElement.getNext();
 		}
 		// value of element at position
 		int value;
 		// if we found element, return it
-		if (foundElement != null)
+		if (foundElement != tail)
 		{
 			value = foundElement.getValue();
 		}
@@ -78,18 +85,18 @@ public class LinkedList {
 		// element at current position
 		ListElement current = head.getNext();
 		// traverse list until we reach index or end
-		for (int i = 0; i < index && current != null; i++)
+		for (int i = 0; i < index && current != tail; i++)
 		{
 			previous = current;
 			current = current.getNext();
 		}
 		// if not at end, get element after deleted one (GC will deal with deleted one)
-		if (current != null)
+		if (current != tail)
 		{
 			current = current.getNext();
 		}
 		previous.setNext(current);
-		
+		current.setPrevious(previous);
 		
 	}
 	
@@ -102,7 +109,7 @@ public class LinkedList {
 		// element we are currently at
 		ListElement current = head.getNext();
 		// traverse linked list
-		while (current != null)
+		while (current != tail)
 		{
 			// print contents
 			print.print(current.getValue() + " ");
